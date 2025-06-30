@@ -1,32 +1,47 @@
-import PropTypes from "prop-types"
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify'
-import Navbar from "./components/Navbar/Navbar"
-import Bannar from "./components/Bannar/Bannar"
-import { useState } from "react"
+// App.jsx
+import { useEffect, useState } from "react";
+import { ToastContainer,} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Navbar from "./components/Navbar/Navbar";
+import Banner from "./components/Banner/Banner";
+import AllPlayers from "./components/AllPlayers/AllPlayers";
 
 function App() {
-  const [coin, setCoin] = useState(0);
+  
+useEffect(() => {
+  fetch("./fake.json")
+  .then((res) => res.json())
+  .then((data) => setPlayers(data.players)) },[]);
 
-  const handleCoin = () => {
-    const newCoin = coin + 1200;
-    setCoin(newCoin);
+  const [players, setPlayers] = useState([]);
+
+  const [isAvailable, setIsAvailable] = useState({
+    isAvailable:true,
+    status: "Available",
+  });
+  const handleAvailability =(status) =>{
+    setIsAvailable({isAvailable:status==="Available",
+      status: status});
   }
 
+  // State to manage the coin count
+  const [coin, setCoin] = useState(0);
+  const handleCoin = () => {
+    setCoin((prev) => prev + 5000000);
+  };
+
+  
+
+  
   return (
     <>
       <Navbar coin={coin} />
-      <Bannar handleCoin={handleCoin}></Bannar>
+      <Banner handleCoin={handleCoin} />
+      <AllPlayers players={players} isAvailable={isAvailable} handleAvailability={handleAvailability}></AllPlayers>
 
-
-      <ToastContainer
-        position="top-center"
-        autoClose={2000}
-        theme="dark"
-      />
-
+      <ToastContainer position="top-center" autoClose={2000} theme="dark" />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
