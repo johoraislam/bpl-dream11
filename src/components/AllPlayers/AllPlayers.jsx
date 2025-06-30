@@ -17,7 +17,6 @@ const AllPlayers = ({players, handleAvailability,isAvailable,handleSelectedPlaye
            selectedPlayers={selectedPlayers} 
            handleAvailability={handleAvailability}
            handleRemovedPlayer={handleRemovedPlayer}
-           setView={setView}
            />
         }
     </div>

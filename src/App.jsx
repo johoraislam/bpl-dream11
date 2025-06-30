@@ -13,7 +13,6 @@ function App() {
       .then((data) => setPlayers(data.players));
   }, []);
 
-  const [view, setView] = useState("available");
   
 
   const [players, setPlayers] = useState([]);
@@ -73,7 +72,6 @@ function App() {
         handleSelectedPlayers={handleSelectedPlayers}
         selectedPlayers={selectedPlayers}
         handleRemovedPlayer={handleRemovedPlayer}
-        view={view}
       ></AllPlayers>
 
       <ToastContainer position="top-center" autoClose={2000} theme="dark" />

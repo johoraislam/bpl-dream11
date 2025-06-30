@@ -3,8 +3,8 @@ import logo from "../../assets/assets/logo.png";
 
 const Navbar = ({coin}) => {
   return (
-    <div>
-      <div className="sticky top-0 z-50 flex justify-between items-center bg-slate-400 text-white p-4">
+    <nav className="sticky top-0 z-50 backdrop-blur-sm">
+      <div className=" flex justify-between items-center bg-slate-400 opacity-70 text-white p-4">
         <div>
           <img src={logo} alt="Logo" />
         </div>
@@ -29,7 +29,7 @@ const Navbar = ({coin}) => {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
