@@ -5,8 +5,13 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/Navbar/Navbar";
 import Banner from "./components/Banner/Banner";
 import AllPlayers from "./components/AllPlayers/AllPlayers";
+import Footer from "./components/Footer/Footer";
 
 function App() {
+
+  const [players, setPlayers] = useState([]);
+
+  // Fetch players data from the JSON file
   useEffect(() => {
     fetch("./fake.json")
       .then((res) => res.json())
@@ -15,7 +20,7 @@ function App() {
 
   
 
-  const [players, setPlayers] = useState([]);
+  
 
   const [isAvailable, setIsAvailable] = useState({
     isAvailable: true,
@@ -47,7 +52,7 @@ function App() {
     }
 
     if (selectedPlayers.length >= 6) {
-      toast.error("You can only select 5 players!");
+      toast.error("You can only select 6 players!");
       return;
     }
     setSelectedPlayers((prev) => [...prev, player]);
@@ -73,6 +78,7 @@ function App() {
         selectedPlayers={selectedPlayers}
         handleRemovedPlayer={handleRemovedPlayer}
       ></AllPlayers>
+      <Footer></Footer>
 
       <ToastContainer position="top-center" autoClose={2000} theme="dark" />
     </>

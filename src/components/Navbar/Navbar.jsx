@@ -6,7 +6,7 @@ const Navbar = ({coin}) => {
     <nav className="sticky top-0 z-50 backdrop-blur-sm">
       <div className=" flex justify-between items-center bg-slate-400 opacity-70 text-white p-4">
         <div>
-          <img src={logo} alt="Logo" />
+          <img  src={logo} alt="Logo" />
         </div>
         <div className="flex gap-8 text-lg items-center">
           <ul className="flex gap-6 text-gray-700 font-medium">

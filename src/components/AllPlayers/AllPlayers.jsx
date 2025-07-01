@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import Available from '../Available/Available'
 import Selected from '../Selected/Selected'
 
-const AllPlayers = ({players, handleAvailability,isAvailable,handleSelectedPlayers,selectedPlayers,handleRemovedPlayer,setView}) => {
+const AllPlayers = ({players, handleAvailability,isAvailable,handleSelectedPlayers,selectedPlayers,handleRemovedPlayer}) => {
   return (
-    <div>  
+    <div className='pb-36'>  
 
       <div className='flex  justify-end mx-8 my-4'>
         <button className={`font-extrabold ${isAvailable.status==="Available" ? 'font-bold bg-yellow-400  text-white px-2 py-1.5 rounded-tl-md rounded-bl-md' : ' font-bold bg-white text-gray-600 border border-gray-500 rounded-tl-md rounded-bl-md px-2 py-1.5 '}`} onClick={() => handleAvailability("Available")}>Available</button>

@@ -106,6 +106,9 @@ const Available = ({ players, handleSelectedPlayers }) => {
   );
 };
 
-Available.propTypes = {};
+Available.propTypes = {
+  players: PropTypes.array.isRequired,
+  handleSelectedPlayers: PropTypes.func.isRequired,
+};
 
 export default Available;
